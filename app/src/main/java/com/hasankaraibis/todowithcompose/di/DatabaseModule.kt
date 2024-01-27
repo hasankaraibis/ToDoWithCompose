@@ -3,7 +3,7 @@ package com.hasankaraibis.todowithcompose.di
 import android.content.Context
 import androidx.room.Room
 import com.hasankaraibis.todowithcompose.data.ToDoDatabase
-import com.hasankaraibis.todowithcompose.util.Constant.DATABASE_NAME
+import com.hasankaraibis.todowithcompose.util.Constants.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
