@@ -87,7 +87,7 @@ fun DefaultListAppBar(
     TopAppBar(
         title = {
             Text(
-                text = "Tasks",
+                text = stringResource(R.string.tasks),
                 color = MaterialTheme.colors.topAppBarContentColor
             )
         },
@@ -293,7 +293,7 @@ fun SearchAppBar(
                 ) {
                     Icon(
                         imageVector = Icons.Filled.Clear,
-                        contentDescription = "Close Icon",
+                        contentDescription = stringResource(R.string.close_icon),
                         tint = MaterialTheme.colors.topAppBarContentColor
                     )
                 }
