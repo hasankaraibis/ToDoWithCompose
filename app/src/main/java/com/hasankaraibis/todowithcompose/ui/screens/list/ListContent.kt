@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -35,19 +36,7 @@ fun ListContent(
     tasks: List<ToDoTask>,
     navigateToTaskScreen: (taskId: Int) -> Unit
 ) {
-    LazyColumn {
-        items(
-            items = tasks,
-            key = { task ->
-                task.id
-            }
-        ) { task ->
-            TaskItem(
-                toDoTask = task,
-                navigateToTaskScreen = navigateToTaskScreen
-            )
-        }
-    }
+
 }
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -87,8 +76,7 @@ fun TaskItem(
                 ) {
                     Canvas(
                         modifier = Modifier
-                            .height(PRIORITY_INDICATOR_SIZE)
-                            .width(PRIORITY_INDICATOR_SIZE)
+                            .size(PRIORITY_INDICATOR_SIZE)
                     ) {
                         drawCircle(color = toDoTask.priority.color)
                     }
@@ -104,6 +92,34 @@ fun TaskItem(
             )
         }
     }
+}
+
+@Composable
+fun DisplayTasks(
+    tasks: List<ToDoTask>,
+    navigateToTaskScreen: (taskId: Int) -> Unit
+){
+    if (tasks.isEmpty()) {
+        EmptyContent()
+    } else {
+        DisplayTasks(
+            tasks = tasks,
+            navigateToTaskScreen = navigateToTaskScreen
+        )
+    }
+//    LazyColumn {
+//        items(
+//            items = tasks,
+//            key = { task ->
+//                task.id
+//            }
+//        ) { task ->
+//            TaskItem(
+//                toDoTask = task,
+//                navigateToTaskScreen = navigateToTaskScreen
+//            )
+//        }
+//    }
 }
 
 @Composable
