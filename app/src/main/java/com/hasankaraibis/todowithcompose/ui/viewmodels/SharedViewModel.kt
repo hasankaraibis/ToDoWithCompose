@@ -134,8 +134,12 @@ class SharedViewModel @Inject constructor(
             Action.DELETE -> {
                 deleteTask()
             }
-            Action.DELETE_ALL -> { }
-            Action.UNDO -> { }
+            Action.DELETE_ALL -> {
+                
+            }
+            Action.UNDO -> {
+                addTask()
+            }
             else -> {
 
             }
